@@ -3,7 +3,7 @@
   "description": "drill3",
   "author": "Kevin OBrien",
   "scripts": {
-    "start": "node.app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "dependencies": {
