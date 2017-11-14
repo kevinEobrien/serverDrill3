@@ -5,37 +5,38 @@ const app = express();
 app.use(cors());
 
 const port = process.env.PORT || 3000;
-const people =[
-  {
-    id: 1,
-    "fist name": "Alice",
-    "last name": "Zephyr",
-    "hometown": "Seattle",
-  },
-  {
-    id: 2,
-    "fist name": "Bob",
-    "last name": "Yellow",
-    "hometown": "Vancouver",
-  },
-  {
-    id: 3,
-    "fist name": "Claire",
-    "last name": "Xylitol",
-    "hometown": "Toledo",
-  },
-  {
-    id: 4,
-    "fist name": "Daniel",
-    "last name": "Winston",
-    "hometown": "Akron",
-  },
-  {
-    id: 5,
-    "fist name": "Edina",
-    "last name": "Veridas",
-    "hometown": "Witchita",
-  },];
+const people ={
+  data: [
+    {
+      id: 1,
+      "fist name": "Alice",
+      "last name": "Zephyr",
+      "hometown": "Seattle",
+    },
+    {
+      id: 2,
+      "fist name": "Bob",
+      "last name": "Yellow",
+      "hometown": "Vancouver",
+    },
+    {
+      id: 3,
+      "fist name": "Claire",
+      "last name": "Xylitol",
+      "hometown": "Toledo",
+    },
+    {
+      id: 4,
+      "fist name": "Daniel",
+      "last name": "Winston",
+      "hometown": "Akron",
+    },
+    {
+      id: 5,
+      "fist name": "Edina",
+      "last name": "Veridas",
+      "hometown": "Witchita",
+    },]};
 
 function getId (data, id){
   for (var i = 0; i < data.length; i++) {
@@ -51,7 +52,7 @@ app.get("/", function(request, response){
 });
 
 app.get("/:id", function(request, response){
-  var record = getId(people, request.params.id);
+  var record = getId(people.data, request.params.id);
   if (!record){
     response.status (404);
     response.json({
